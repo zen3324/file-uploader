@@ -43,6 +43,6 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails'
-
+  gem 'test-unit'  
   gem 'factory_girl_rails'
 end
