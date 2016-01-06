@@ -1,1 +1,17 @@
 <h1><%= @uploadFile.name %></h1>
+
+有効期限 <%= @uploadFile.expiry_date %>
+
+<hr>
+
+<div class="row">
+  <div class="span3">
+    <%= form_for @uploadFile do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Delete", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
