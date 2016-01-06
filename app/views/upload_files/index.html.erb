@@ -5,7 +5,7 @@
 <ul>
 	<% @uploadFiles.each do |uploadFile| %>
 	<li>
-		<%= link_to uploadFile.title, upload_file_path(uploadFile.id) %>
+		<%= link_to uploadFile.name, upload_file_path(uploadFile.id) %>
 		<%= link_to "[Edit]", edit_upload_file_path(uploadFile.id) %>
 		<%= link_to "[Delete]", upload_file_path(uploadFile.id), method: :delete, data: { confirm: "Are you sure?"} %>
 	</li>

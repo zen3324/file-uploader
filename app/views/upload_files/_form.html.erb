@@ -1,0 +1,24 @@
+<%= form_for @uploadFile do |f| -%>
+
+<div class="row">
+  <div class="span9 offset3">
+    <%= form_for @uploadFile do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :expiry_date %>
+      <%= f.date_select :expiry_date %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :private_mode %>
+      <%= f.check_box :private_mode %>
+
+      <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<% end -%>
