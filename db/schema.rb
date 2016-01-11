@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228023130) do
+ActiveRecord::Schema.define(version: 20160106173321) do
 
   create_table "upload_files", force: :cascade do |t|
+    t.binary   "upload_file"
     t.string   "name"
     t.date     "expiry_date"
     t.string   "password"
