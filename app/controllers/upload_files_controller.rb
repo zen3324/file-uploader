@@ -19,18 +19,18 @@ class UploadFilesController < ApplicationController
       upload_file[:upload_file] = file.read
       upload_file[:name] = file.original_filename
     end
-    upload_file[:expiry_date] = upload_file_params[:expiry_date]
+    upload_file[:expiry_date] = Date.new(upload_file_params["expiry_date(1i)"].to_i,
+                                         upload_file_params["expiry_date(2i)"].to_i,
+                                         upload_file_params["expiry_date(3i)"].to_i)
     upload_file[:password] = upload_file_params[:password]
     upload_file[:private_mode] = upload_file_params[:private_mode]
     @upload_file = UploadFile.new(upload_file)
     respond_to do |format|
       if @upload_file.save
         format.html { redirect_to @upload_file, notice: 'Upload success' }
-        format.json { render action: 'show', status: :created, location: @upload_file }
       else
         @upload_files = UploadFile.all
         format.html { render action: 'index' }
-        format.json { render json: @upload_file.errors, status: :unprocessable_entity }
       end
     end
   end
