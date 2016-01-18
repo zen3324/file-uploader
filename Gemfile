@@ -51,4 +51,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'spring-commands-rspec'
+  gem "turnip"
+
 end
