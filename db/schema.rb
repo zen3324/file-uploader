@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(version: 20160106173321) do
 
   create_table "upload_files", force: :cascade do |t|
-    t.binary   "upload_file"
     t.string   "name"
     t.date     "expiry_date"
     t.string   "password"
     t.boolean  "private_mode"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.binary   "upload_file"
   end
 
 end

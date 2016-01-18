@@ -40,4 +40,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
+  config.before(:all) do
+      FactoryGirl.reload
+  end
 end
