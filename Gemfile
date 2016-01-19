@@ -52,5 +52,6 @@ group :development, :test do
   gem 'capybara'
   gem 'spring-commands-rspec'
   gem "turnip"
+  gem 'poltergeist'
 
 end
