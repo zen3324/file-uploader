@@ -3,6 +3,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rails'
+require 'turnip'
+require 'turnip/rspec'
+require 'turnip/capybara'
+Dir.glob('spec/steps/**/*steps.rb') { |f| load f, true }
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -42,5 +47,14 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.before(:all) do
       FactoryGirl.reload
+  end
+
+  # database_rewinder gem
+  config.before :suite do
+    DatabaseRewinder.clean_all
+  end
+
+  config.after :each do
+    DatabaseRewinder.clean
   end
 end
