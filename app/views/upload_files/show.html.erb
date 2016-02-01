@@ -1,7 +1,10 @@
-<h1><%= @uploadFile.name %></h1>
-
-有効期限 <%= @uploadFile.expiry_date %>
-
+<div class="row">
+  <div class="span12">
+    <h1><%= @uploadFile.name %></h1>
+    有効期限 <%= @uploadFile.expiry_date %>
+    <%= button_to "Download", download_path(@uploadFile), method: "get", class: "btn btn-large btn-primary" %>
+  </div>
+</div>
 
 <hr>
 

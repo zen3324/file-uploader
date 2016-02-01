@@ -35,6 +35,12 @@ class UploadFilesController < ApplicationController
     end
   end
 
+  def download
+    @uploadFile = UploadFile.find(params[:id])
+    send_data(@uploadFile.upload_file,
+      :filename => @uploadFile.name)
+  end
+
   private
 
   def upload_file_params
