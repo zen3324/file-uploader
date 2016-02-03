@@ -10,7 +10,7 @@
 
 <div class="row">
   <div class="span3">
-    <%= form_for @uploadFile do |f| %>
+    <%= form_for @uploadFile, method: :delete do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :password %>
       <%= f.password_field :password %>

@@ -35,6 +35,16 @@ class UploadFilesController < ApplicationController
     end
   end
 
+  def destroy
+    @upload_file = UploadFile.find(params[:id])
+    if @upload_file.password == upload_file_params[:password]
+      @upload_file.destroy
+      redirect_to upload_files_url, notice: "File deleted"
+    else
+      redirect_to @upload_file, alert: "Wrong password"
+    end
+  end
+
   def download
     @uploadFile = UploadFile.find(params[:id])
     send_data(@uploadFile.upload_file,
