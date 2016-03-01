@@ -1,11 +1,11 @@
 class UploadFilesController < ApplicationController
 
   def index
-    @uploadFiles = UploadFile.all
+    @uploadFiles = UploadFile.not_expire
   end
 
   def show
-    @uploadFile = UploadFile.find(params[:id])
+    @uploadFile = UploadFile.not_expire.find(params[:id])
   end
 
   def new
