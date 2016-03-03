@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "upload_files#index"
   resources :upload_files
   get 'upload_files/download/:id'=> 'upload_files#download' ,as: :download
